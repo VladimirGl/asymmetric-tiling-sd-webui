@@ -26,7 +26,7 @@ class Script(modules.scripts.Script):
     # Override from modules.scripts.Script
     def ui(self, is_img2img):
         with gradio.Accordion("Asymmetric tiling", open=False):
-            active = gradio.Checkbox(False, label="Active")
+            active = gradio.Checkbox(True, label="Active")
             tileX = gradio.Checkbox(True, label="Tile X")
             tileY = gradio.Checkbox(False, label="Tile Y")
             startStep = gradio.Number(0, label="Start tiling from step N", precision=0)
