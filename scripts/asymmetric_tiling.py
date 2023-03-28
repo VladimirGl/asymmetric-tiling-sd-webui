@@ -60,6 +60,7 @@ class Script(modules.scripts.Script):
     def __hijackConv2DMethods(self, tileX: bool, tileY: bool,  startStep: int, stopStep: int):
         for layer in modules.sd_hijack.model_hijack.layers:
             if type(layer) == Conv2d:
+                print(layer)
                 layer.padding_modeX = 'circular' if tileX else 'constant'
                 layer.padding_modeY = 'circular' if tileY else 'constant'
                 layer.paddingX = (layer._reversed_padding_repeated_twice[0], layer._reversed_padding_repeated_twice[1], 0, 0)
